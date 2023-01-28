@@ -6,6 +6,7 @@ function get_computer_choice(){
 }
 
 
+
 function round(computerChoice,playerChoice){
 
     playerChoice=playerChoice.toUpperCase();
@@ -30,3 +31,30 @@ function round(computerChoice,playerChoice){
     
 }
 
+
+function game(){
+    
+    let wins=0;
+    let losses=0;
+    
+    while (wins<5 && losses<5){
+        
+        playerChoice=prompt('Enter your choice');
+        computerChoice=get_computer_choice()
+        result=round(computerChoice=computerChoice,playerChoice=playerChoice);
+        
+        
+        
+        alert(result);
+        console.log('result');
+        if (result.search('lose')!=-1) losses++;
+        else if (result.search('win!')!=-1) wins++;
+        
+        console.log('wins:'+wins+' losses:'+losses);
+    }
+    if (wins>losses) alert(`You win! the score is ${wins}:${losses}`);
+    else if (wins==losses) alert(`draw! the score is ${wins}:${losses}`);
+    else alert(`You lost! the score is ${wins}:${losses}`);
+}
+
+game()
