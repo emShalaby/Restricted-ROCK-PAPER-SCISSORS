@@ -32,29 +32,39 @@ function round(computerChoice,playerChoice){
 }
 
 
-function game(){
+// function game(){
     
-    let wins=0;
-    let losses=0;
+//     let wins=0;
+//     let losses=0;
     
-    while (wins<5 && losses<5){
+//     while (wins<5 && losses<5){
         
-        playerChoice=prompt('Enter your choice');
-        computerChoice=get_computer_choice()
-        result=round(computerChoice=computerChoice,playerChoice=playerChoice);
+//         playerChoice=prompt('Enter your choice');
+//         computerChoice=get_computer_choice()
+//         result=round(computerChoice=computerChoice,playerChoice=playerChoice);
         
         
         
-        alert(result);
-        console.log('result');
-        if (result.search('lose')!=-1) losses++;
-        else if (result.search('win!')!=-1) wins++;
+//         alert(result);
+//         console.log('result');
+//         if (result.search('lose')!=-1) losses++;
+//         else if (result.search('win!')!=-1) wins++;
         
-        console.log('wins:'+wins+' losses:'+losses);
-    }
-    if (wins>losses) alert(`You win! the score is ${wins}:${losses}`);
-    else if (wins==losses) alert(`draw! the score is ${wins}:${losses}`);
-    else alert(`You lost! the score is ${wins}:${losses}`);
-}
+//         console.log('wins:'+wins+' losses:'+losses);
+//     }
+//     if (wins>losses) alert(`You win! the score is ${wins}:${losses}`);
+//     else if (wins==losses) alert(`draw! the score is ${wins}:${losses}`);
+//     else alert(`You lost! the score is ${wins}:${losses}`);
+// }
 
-game()
+// game()
+
+const rockBtn=document.getElementById('rockBtn');
+const paperBtn=document.getElementById('paperBtn');
+const scissorsBtn=document.getElementById('scissorsBtn');
+
+rockBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='ROCK')));
+paperBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='PAPER')));
+scissorsBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='Scissors')));
+
+
