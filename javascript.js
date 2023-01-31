@@ -68,13 +68,32 @@ const enemyScore=document.getElementById('enemy-score');
 const mainContent=document.getElementById('main-content');
 const winGameMsg=document.getElementById('win-game-msg');
 const loseGameMsg=document.getElementById('lose-game-msg');
-const playAgain=document.getElementById('play-again')
+const playAgainWin=document.getElementById('play-again-win');
+const playAgainLose=document.getElementById('play-again-lose');
+playAgainWin.addEventListener('click',restart);
+playAgainLose.addEventListener('click',restart);
 
-playAgain.addEventListener('click',()=>{
+
+
+function restart(){
+    
     mainContent.style.display='block';
     winGameMsg.style.display='none';
     loseGameMsg.style.display='none';
-})
+    yourScore.innerHTML=0;
+    enemyScore.innerHTML=0;
+    dynamicResultQuote.innerHTM='First to win 5 rounds!';
+    
+}
+
+function resetScore(){
+    yourScore.innerHTML=0;
+    enemyScore.innerHTML=0;
+    dynamicResultQuote.innerHTML='First to win 5 rounds!';
+    return;
+    
+}
+
 rockBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='ROCK'));
 paperBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='PAPER'));
 scissorsBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='SCISSORS'));
