@@ -24,6 +24,10 @@ h2{
 }
 .mid h2,.mid h4{
     color: gray;
+    
+}
+.mid h4{
+    display: inline;
 }
 .choices{
     border: solid gray 2px;
@@ -39,7 +43,7 @@ button{
 .header-images img{
     display: flex;
     height: 200px;
-    
+
 }
 .choices img{
     border: solid gray 2px;
