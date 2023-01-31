@@ -77,6 +77,23 @@ function updateScore(computerChoice,playerChoice){
     dynamicResultQuote.textContent=roundResult;
     if (roundResult.includes('win')) yourScore.innerHTML=Number(yourScore.innerHTML)+1;
     if (roundResult.includes('lose')) enemyScore.innerHTML=Number(enemyScore.innerHTML)+1;
-    
+    isGameOver(yourScore=yourScore.innerHTML,enemyScore=enemyScore.innerHTML)
 }
 
+
+
+function isGameOver(yourScore,enemyScore){
+    
+    if (yourScore=='5'){
+        endMessage(result='win')
+    }
+    
+    if (enemyScore=='5'){
+        endMessage(result='lose')
+    }
+
+}
+
+function endMessage(result){
+    if result='win' 
+}
