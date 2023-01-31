@@ -9,7 +9,7 @@ body,html{
     width: 100%;
 }
 h2{
-    color: gray;
+    color: white;
 }
 .header{
     width: 100%;
@@ -21,15 +21,24 @@ h2{
 }
 .mid{
     border: 2px gray solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ 
     
 }
 .mid h2,.mid h4{
-    color: gray;
+    color: white;
     
 }
-.mid h4{
-    display: inline;
+.mid h2 {
+   font-size: 32px;
+   color: yellow;
+   font-family: 'Press Start 2P', cursive;
 }
+
+
 .choices{
     border: solid gray 2px;
     display: flex;
@@ -74,3 +83,13 @@ h2{
     border: solid 2px gray;
 }
 
+#part2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+#part2 img{
+    height: 50px;
+}

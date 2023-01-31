@@ -62,7 +62,6 @@ function round(computerChoice,playerChoice){
 const rockBtn=document.getElementById('rockBtn');
 const paperBtn=document.getElementById('paperBtn');
 const scissorsBtn=document.getElementById('scissorsBtn');
-const dynamicResultQuote=document.getElementById('score-text');
 const yourScore=document.getElementById('your-score');
 const enemyScore=document.getElementById('enemy-score');
 const mainContent=document.getElementById('main-content');
@@ -70,6 +69,12 @@ const winGameMsg=document.getElementById('win-game-msg');
 const loseGameMsg=document.getElementById('lose-game-msg');
 const playAgainWin=document.getElementById('play-again-win');
 const playAgainLose=document.getElementById('play-again-lose');
+const yourImg=document.getElementById('your-img');
+const enemyImg=document.getElementById('enemy-img');
+
+rockBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='ROCK'));
+paperBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='PAPER'));
+scissorsBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='SCISSORS'));
 playAgainWin.addEventListener('click',restart);
 playAgainLose.addEventListener('click',restart);
 
@@ -82,30 +87,35 @@ function restart(){
     loseGameMsg.style.display='none';
     yourScore.innerHTML=0;
     enemyScore.innerHTML=0;
-    dynamicResultQuote.innerHTM='First to win 5 rounds!';
+    
     
 }
 
-function resetScore(){
-    yourScore.innerHTML=0;
-    enemyScore.innerHTML=0;
-    dynamicResultQuote.innerHTML='First to win 5 rounds!';
-    return;
-    
-}
 
-rockBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='ROCK'));
-paperBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='PAPER'));
-scissorsBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='SCISSORS'));
+
 
 function updateScore(computerChoice,playerChoice){
-    roundResult=round(computerChoice,playerChoice);
-    dynamicResultQuote.textContent=roundResult;
+    PC=computerChoice
+    P1=playerChoice
+    roundResult=round(PC,P1);
     if (roundResult.includes('win')) yourScore.innerHTML=Number(yourScore.innerHTML)+1;
     if (roundResult.includes('lose')) enemyScore.innerHTML=Number(enemyScore.innerHTML)+1;
+    showIcon(PC,P1);
     isGameOver(you=yourScore.innerHTML,enemy=enemyScore.innerHTML)
+    
 }
 
+function showIcon(computerChoice,playerChoice){
+    if (computerChoice.toLowerCase()=='scissors') enemyImg.src='./scissors-icon.png';
+    else if (computerChoice.toLowerCase()=='rock') enemyImg.src='./rock-icon.png';
+    else if (computerChoice.toLowerCase()=='paper') enemyImg.src='./paper-icon.png';
+    
+    if (playerChoice.toLowerCase()=='paper') yourImg.src='./paper-icon.png';
+    if (playerChoice.toLowerCase()=='rock') yourImg.src='./rock-icon.png';
+    if (playerChoice.toLowerCase()=='scissors') yourImg.src='./scissors-icon.png';
+
+    return;
+}
 
 
 function isGameOver(you,enemy){

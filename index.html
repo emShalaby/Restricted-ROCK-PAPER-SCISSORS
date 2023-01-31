@@ -8,49 +8,61 @@
     <script src="./javascript.js" defer></script>
     <link rel="stylesheet" href="./stylesheet.css">
 </head>
-<body >
-    
-    
-        <div id="main-content">
-            <div class="header">
-                <h2>Debt collectors come knocking on your door they kidnap you
-                    and take you to a ship called the "<b>Espoir</b>" where you compete with others
-                    in an RPS tournament . Those who lose get sent to work in the mines forever!
-                </h2>
-                <div class="header-images">
-                    <img src="./Espoir.webp">
+<body>   
+    <div id="main-content">
+            
+        <div class="header">
+            
+            <h2>Debt collectors come knocking on your door they kidnap you
+            and take you to a ship called the "<b>Espoir</b>" where you compete with others
+            in an RPS tournament . Those who lose get sent to work in the mines forever!
+            </h2>
+        
+            <div class="header-images">
+                <img src="./Espoir.webp">
+            </div>
+        </div>
+            
+        <div class="mid" >
+            <h2>First to win 5 rounds!</h2>
+            <div id="part2">
+                <div class="you">
+                    <h4 >YOU:
+                        <h4 id="your-score">0</h4>
+                    </h4>
+                    <img id="your-img">
+                </div>
+                <div class="enemy">
+                    <h4 >ENEMY:
+                        <h4 id="enemy-score">0</h4>
+                    </h4>
+                    <img id="enemy-img">
                 </div>
             </div>
-            <div class="mid" >
-                <h2 id="score-title">SCORE:</h2>
-                <h4 >YOU:
-                    <h4 id="your-score">0</h4>
-                </h4>
-            
-                <h4 >ENEMY:
-                    <h4 id="enemy-score">0</h4>
-                </h4>
-                <h4 id="score-text">First to win 5 rounds! </h4>
-            </div>
-            
-            <div class="choices">
-                <button id="rockBtn" ><img src="./rock.png"></button>
-            
-                <button id="paperBtn"><img src='./paper.png'></button>
-            
-                <button id="scissorsBtn"><img src="./scissors.png"></button>
-            </div>
-        </div>
         
-        <div id="win-game-msg">
-            <h1>You win and escape the Espoir!</h1>
-            <button id="play-again-lose" >Play again</button>        
         </div>
+                
+        <div class="choices">
+        <button id="rockBtn" ><img src="./rock.png"></button>
         
-        <div id="lose-game-msg">
-            <h1>You lose and get to the mines! </h1>
-            <button id="play-again-win">Play again</button>    
-        </div>
+        <button id="paperBtn"><img src='./paper.png'></button>
+        
+        <button id="scissorsBtn"><img src="./scissors.png"></button>
+        
+        
+        
+            </div>
+    </div>
+        
+    <div id="win-game-msg">
+        <h1>You win and escape the Espoir!</h1>
+        <button id="play-again-lose" >Play again</button>        
+    </div>
+        
+    <div id="lose-game-msg">
+        <h1>You lose and get to the mines! </h1>
+        <button id="play-again-win">Play again</button>    
+    </div>
     
 </body>
 </html>
