@@ -65,6 +65,10 @@ const scissorsBtn=document.getElementById('scissorsBtn');
 const dynamicResultQuote=document.getElementById('score-text');
 const yourScore=document.getElementById('your-score');
 const enemyScore=document.getElementById('enemy-score');
+const mainContent=document.getElementById('main-content');
+const winGameMsg=document.getElementById('win-game-msg');
+const loseGameMsg=document.getElementById('lose-game-msg');
+
 
 
 
@@ -84,20 +88,30 @@ function updateScore(computerChoice,playerChoice){
 
 function isGameOver(you,enemy){
     
-    if (yourScore==5){
+    if (you==5){
         endMessage(result='win');
+        return;
         
     }
     
-    if (enemy==5){
+    else if (enemy==5){
         endMessage(result='lose');
+        return;
         
     }
+    else return;
 
 }
 
 function endMessage(result){
-    if (result=='win') document.getElementById('main-content').style.display='none';
-    if (result=='lose') document.getElementById('main-content').style.display='none';
-    
+    mainContent.style.display='none';
+    if (result=='win'){
+        winGameMsg.style.display='flex';
+        return;
+    }
+    if (result=='lose'){
+        loseGameMsg.style.display='flex';
+        return;
+    }
+    return;
 }

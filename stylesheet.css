@@ -56,3 +56,11 @@ button{
     gap: 30px;
 }
 
+#win-game-msg,
+#lose-game-msg{
+    display: none;
+    color: white;
+    border: solid 10px gray;
+
+}
+
