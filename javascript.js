@@ -87,7 +87,8 @@ function restart(){
     loseGameMsg.style.display='none';
     yourScore.innerHTML=0;
     enemyScore.innerHTML=0;
-    
+    yourImg.src='./question-mark.png';
+    enemyImg.src='./question-mark.png';
     
 }
 

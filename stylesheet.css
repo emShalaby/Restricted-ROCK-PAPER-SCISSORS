@@ -10,6 +10,8 @@ body,html{
 }
 h2{
     color: white;
+    font-family: Comic Sans MS, sans-serif;
+
 }
 .header{
     width: 100%;
@@ -17,10 +19,8 @@ h2{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: gray 2px solid;
 }
 .mid{
-    border: 2px gray solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,8 @@ h2{
 }
 .mid h2,.mid h4{
     color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
     
 }
 .mid h2 {
@@ -40,11 +42,12 @@ h2{
 
 
 .choices{
-    border: solid gray 2px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
+    flex: auto;
 }
 .choices button{
     all: unset;
@@ -52,7 +55,9 @@ h2{
 
 .header-images img{
     display: flex;
-    height: 200px;
+    max-height: 200px;
+    flex-shrink: 1;
+    
 
 }
 .choices img{
@@ -78,10 +83,7 @@ h2{
 
 }
 
-#win-game-msg button,
-#lose-game-msg button{
-    border: solid 2px gray;
-}
+
 
 #part2{
     display: flex;
@@ -91,5 +93,5 @@ h2{
 }
 
 #part2 img{
-    height: 50px;
+    height: 40px;
 }
