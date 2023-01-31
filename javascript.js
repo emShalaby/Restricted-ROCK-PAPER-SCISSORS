@@ -68,10 +68,13 @@ const enemyScore=document.getElementById('enemy-score');
 const mainContent=document.getElementById('main-content');
 const winGameMsg=document.getElementById('win-game-msg');
 const loseGameMsg=document.getElementById('lose-game-msg');
+const playAgain=document.getElementById('play-again')
 
-
-
-
+playAgain.addEventListener('click',()=>{
+    mainContent.style.display='block';
+    winGameMsg.style.display='none';
+    loseGameMsg.style.display='none';
+})
 rockBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='ROCK'));
 paperBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='PAPER'));
 scissorsBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='SCISSORS'));

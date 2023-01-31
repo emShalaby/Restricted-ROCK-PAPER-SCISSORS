@@ -37,7 +37,7 @@ h2{
     align-items: center;
     background-color: black;
 }
-button{
+.choices button{
     all: unset;
 }
 
@@ -65,6 +65,12 @@ button{
     width: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
+}
+
+#win-game-msg button,
+#lose-game-msg button{
+    border: solid 2px gray;
 }
 
