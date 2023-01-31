@@ -84,16 +84,20 @@ function updateScore(computerChoice,playerChoice){
 
 function isGameOver(you,enemy){
     
-    if (yourScore=='5'){
+    if (yourScore==5){
         endMessage(result='win');
+        
     }
     
-    if (enemyScore=='5'){
+    if (enemy==5){
         endMessage(result='lose');
+        
     }
 
 }
 
 function endMessage(result){
-    if (result='win') return 0; 
+    if (result=='win') document.getElementById('main-content').style.display='none';
+    if (result=='lose') document.getElementById('main-content').style.display='none';
+    
 }
