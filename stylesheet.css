@@ -3,9 +3,10 @@
     box-sizing: border-box;
     margin: 10px;
 }
-body{
+body,html{
     background-color: black;
-    background-image: ;
+    height: 100%;
+    width: 100%;
 }
 h2{
     color: gray;
@@ -60,7 +61,10 @@ button{
 #lose-game-msg{
     display: none;
     color: white;
-    border: solid 10px gray;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 
 }
 
