@@ -8,16 +8,28 @@
     <script src="./javascript.js" defer></script>
     <link rel="stylesheet" href="./stylesheet.css">
 </head>
-<body>
+<body >
     
     <div class="header">
         <h2>Debt collectors come knocking on your door they kidnap you
-            and take you to a ship called the "Espoir" where you compete with others
+            and take you to a ship called the "<b>Espoir</b>" where you compete with others
             in an RPS tournament . Those who lose get sent to work in the mines forever!
         </h2>
-        <img src="./Espoir.webp">   
+        <div class="header-images">
+            <img src="./Espoir.webp">
+        </div>  
     </div>
-    
+    <div class="mid" >
+        <h2 id="score-title">SCORE:</h2>
+        <h4 >YOU:
+            <h4 id="your-score">0</h4>
+        </h4>
+        
+        <h4 >ENEMY:
+            <h4 id="enemy-score">0</h4>
+        </h4>
+        <h4 id="score-text">first to win 5 rounds! </h4>
+    </div>
     
     <div class="choices">
         <button id="rockBtn" ><img src="./rock.png"></button>

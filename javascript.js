@@ -62,9 +62,20 @@ function round(computerChoice,playerChoice){
 const rockBtn=document.getElementById('rockBtn');
 const paperBtn=document.getElementById('paperBtn');
 const scissorsBtn=document.getElementById('scissorsBtn');
+const dynamicResultQuote=document.getElementById('score-text');
+const yourScore=document.getElementById('your-score');
+const enemyScore=document.getElementById('enemy-score');
+yourScore.innerHTML=Number(0);
+enemyScore.innerHTML=Number(0);
 
-rockBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='ROCK')));
-paperBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='PAPER')));
-scissorsBtn.addEventListener('click',()=>alert(round(computerChoice=get_computer_choice(),playerChoice='Scissors')));
 
+rockBtn.addEventListener('click',()=>dynamicResultQuote.textContent=round(computerChoice=get_computer_choice(),playerChoice='ROCK'));
+paperBtn.addEventListener('click',()=>dynamicResultQuote.textContent=round(computerChoice=get_computer_choice(),playerChoice='PAPER'));
+scissorsBtn.addEventListener('click',()=>updateScore(computerChoice=get_computer_choice(),playerChoice='SCISSORS'));
+
+function updateScore(computerChoice,playerChoice){
+    roundResult=round(computerChoice,playerChoice);
+    dynamicResultQuote.textContent=roundResult;
+    if (roundResult.includes('win')) yourScore.innerHTML=Number(yourScore.innerHTML)+1;
+}
 

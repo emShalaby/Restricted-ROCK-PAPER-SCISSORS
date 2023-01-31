@@ -5,6 +5,7 @@
 }
 body{
     background-color: black;
+    background-image: ;
 }
 h2{
     color: gray;
@@ -17,7 +18,13 @@ h2{
     flex-direction: column;
     border: gray 2px solid;
 }
-
+.mid{
+    border: 2px gray solid;
+    
+}
+.mid h2,.mid h4{
+    color: gray;
+}
 .choices{
     border: solid gray 2px;
     display: flex;
@@ -29,8 +36,10 @@ button{
     all: unset;
 }
 
-.header img{
+.header-images img{
+    display: flex;
     height: 200px;
+    
 }
 .choices img{
     border: solid gray 2px;
