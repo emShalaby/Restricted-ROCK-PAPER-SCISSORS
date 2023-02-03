@@ -22,8 +22,7 @@ h2{
 }
 .mid{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
  
     
@@ -87,11 +86,17 @@ h2{
 
 #part2{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    border: 2px solid gray;
     gap: 50px;
 }
 
 #part2 img{
     height: 40px;
+}
+.mid-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
