@@ -38,4 +38,7 @@ playBtn.addEventListener('click',()=>{
     game.style.display='flex'
 })
 
-alert(round(computer='Rock',player='Scissors'))
+cards.forEach(element=>{
+    element.addEventListener('click',()=>element.style.display='none');
+    element.addEventListener('click',()=>alert(round(get_computer_choice(),element.classList[1])));
+})
