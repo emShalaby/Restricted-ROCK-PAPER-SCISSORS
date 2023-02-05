@@ -3,6 +3,7 @@ const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
 const cardsContainer=document.querySelector('#cards')
 const header=document.querySelector('.header');
+const confirmBtn=document.querySelector('.play-card')
 let yourScore=document.querySelector('#you')
 let computerScore=document.querySelector('#computer')
 var computerHand=[];
@@ -100,6 +101,20 @@ function gameOver(element){
     console.log('gameover');
     game.style.display='none';
 }
+function resetCards(){
+    cards.forEach(element=>{
+        element.style.border=''
+        element.style.transform=''})
+}
+// function that makes cards to the right of card move to the right
+function moveOtherCards(element){
+    let currentElement=element;
+    while(currentElement.nextElementSibling){
+        currentElement=currentElement.nextElementSibling;
+        currentElement.style.transform='translateX(6vw)'
+    }
+}
+
 //-----EVENTS-----
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
@@ -111,14 +126,20 @@ playBtn.addEventListener('click',()=>{
 })
 
 cards.forEach(element=>{
-    element.addEventListener('click',()=>element.remove());
     element.addEventListener('click',()=>{
-        round(get_computer_choice(),element.classList[1]);
-        checkScore();
-            }
+        resetCards()
+        moveOtherCards(element)        
+        element.style.transform='translateY(-2vw)'
+        element.style.border='double .05vw blue'
+    })
+    // element.addEventListener('click',()=>element.remove());
+    // element.addEventListener('click',()=>{
+    //     round(get_computer_choice(),element.classList[1]);
+    //     checkScore();
+    //         }
 
-        )
-    }
+//         )
+}
 )
 
 
