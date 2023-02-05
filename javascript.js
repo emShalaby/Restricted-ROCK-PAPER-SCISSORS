@@ -1,4 +1,4 @@
-const playBtn=document.querySelector('.play');
+const playBtn=document.querySelector('.wrapper');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
 const cardsContainer=document.querySelector('#cards')
