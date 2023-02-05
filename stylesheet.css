@@ -59,7 +59,7 @@ h1{
 .card:hover,
 .card:focus-within{
     transform: translateY(-1rem);
-    border: solid 1px blue;
+    border: solid .05vw blue;
 }
 
 .card:hover ~.card,
@@ -84,7 +84,15 @@ h1{
 .score div{
     border: solid 2px gray;
     background-color: red;
-    height: 3vw;
-    width: 10vw;
+    height: 6.5vw;
+    width: 14vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 
+}
+.score img{
+    height: 2.5vw;
+    width: 2.5vw;
 }
