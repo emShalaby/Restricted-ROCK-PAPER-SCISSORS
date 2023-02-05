@@ -2,6 +2,8 @@ const playBtn=document.querySelector('.play');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
 const header=document.querySelector('.header');
+let yourScore=document.querySelector('#you')
+let computerScore=document.querySelector('#computer')
 var computerHand=[];
 
 
@@ -25,16 +27,43 @@ function round(computer,player){
     
     if (player===computer) return draw;
 
-    else if (player=='Rock' && computer=='Paper') return `${lose} ${RP}`;
-    else if (player=='Rock'&& computer=='Scissors') return `${win} ${RS}`;
-    else if (player=='Paper' && computer=='Rock') return `${win} ${RP} `;
-    else if (player=='Paper' && computer=='Scissors') return `${lose} ${PS}`;
-    else if (player=='Scissors' && computer=='Rock') return `${lose} ${RS}`;
-    else if (player=='Scissors' && computer=='Paper') return `${win} ${PS}`
+    else if (player=='Rock' && computer=='Paper') {
+        addScore(winner=computerScore,loser=yourScore)
+        return `${lose} ${RP}`;}
+    
+        else if (player=='Rock'&& computer=='Scissors') {
+            addScore(winner=yourScore,loser=computerScore)
+            return `${win} ${RS}`;}
+    
+    else if (player=='Paper' && computer=='Rock') {
+        addScore(winner=yourScore,loser=computerScore)
+        return `${win} ${RP} `;
+    }
+    
+    else if (player=='Paper' && computer=='Scissors') {
+        addScore(winner=computerScore,loser=yourScore);
+        return `${lose} ${PS}`;
+    }
+    
+    else if (player=='Scissors' && computer=='Rock') {
+        addScore(winner=computerScore,loser=yourScore)    
+        return `${lose} ${RS}`;
+    }
+    else if (player=='Scissors' && computer=='Paper') {
+        addScore(winner=yourScore,loser=computerScore);
+        return `${win} ${PS}`
+    }
     
 
 }
 
+function addScore(winner,loser){
+    loser.removeChild(loser.children[0]);
+    var img=document.createElement('img');
+    img.src='./star.png'
+    img.alt='star-icon'
+    winner.appendChild(img);
+}
 function generateComputerHand(){
     
     computerHand=['Rock','Paper','Scissors','Rock','Paper',
@@ -65,6 +94,6 @@ playBtn.addEventListener('click',()=>{
 
 cards.forEach(element=>{
     element.addEventListener('click',()=>element.style.display='none');
-    element.addEventListener('click',()=>alert(round(get_computer_choice(),element.classList[1])));
+    element.addEventListener('click',()=>round(get_computer_choice(),element.classList[1]));
 })
 
