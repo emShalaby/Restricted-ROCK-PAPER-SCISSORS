@@ -1,102 +1,32 @@
 *{
-
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    margin: 10px;
 }
+
 body,html{
-    background-color: black;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-}
-h2{
-    color: white;
-    font-family: Comic Sans MS, sans-serif;
+    height: 100%;
+    align-items: center;
 
 }
 .header{
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+.content{
+    display: flex;
     flex-direction: column;
-}
-.mid{
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
- 
-    
-}
-.mid h2,.mid h4{
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    
-}
-.mid h2 {
-   font-size: 32px;
-   color: yellow;
-   font-family: 'Press Start 2P', cursive;
-}
-
-
-.choices{
-
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: black;
-    flex: auto;
-}
-.choices button{
-    all: unset;
-}
-
-.header-images img{
-    display: flex;
-    max-height: 200px;
-    flex-shrink: 1;
-    
-
-}
-.choices img{
-    border: solid gray 2px;
-}
-.choices{
-   
-    display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 30px;
 }
-
-#win-game-msg,
-#lose-game-msg{
+.game{
     display: none;
-    color: white;
+    border: solid 2 px gray;
     height: 100%;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-
-
-#part2{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border: 2px solid gray;
-    gap: 50px;
-}
-
-#part2 img{
-    height: 40px;
-}
-.mid-text{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    background-color: black;
+    
 }
