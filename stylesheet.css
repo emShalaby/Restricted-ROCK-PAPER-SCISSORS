@@ -55,12 +55,14 @@ h1{
     height: 12vw;
     width: 12vw;
 }
-.card:hover{
+.card:hover,
+.card:focus-within{
     transform: translateY(-1rem);
     border: solid 1px blue;
 }
 
-.card:hover ~.card{
+.card:hover ~.card,
+.card:focus-within ~.card{
     transform: translateX(5rem);
 }
 .card img{
