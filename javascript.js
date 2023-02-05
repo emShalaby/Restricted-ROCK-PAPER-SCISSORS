@@ -1,6 +1,7 @@
 const playBtn=document.querySelector('.play');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
+var computerHand=[];
 
 
 //----Functions---
@@ -32,13 +33,33 @@ function round(computer,player){
 
 }
 
+function generateComputerHand(){
+    
+    computerHand=['Rock','Paper','Scissors','Rock','Paper',
+    'Scissors','Rock','Paper','Scissors'];
+    shuffleArray(computerHand);
+
+}
+
+
+//fisher-yates shuffle
+function shuffleArray(array) {
+    for (let i = array.length - 1; i >0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  
 //-----EVENTS-----
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
-    game.style.display='flex'
+    game.style.display='flex';
+    generateComputerHand();
 })
 
 cards.forEach(element=>{
     element.addEventListener('click',()=>element.style.display='none');
     element.addEventListener('click',()=>alert(round(get_computer_choice(),element.classList[1])));
 })
+
