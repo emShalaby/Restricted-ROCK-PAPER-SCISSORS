@@ -7,7 +7,7 @@ const confirmBtn=document.querySelector('.play-card')
 let yourScore=document.querySelector('#you')
 let computerScore=document.querySelector('#computer')
 var computerHand=[];
-
+var currentCard={};
 //----Functions---
 function get_computer_choice(){
     let randomIndex = Math.floor(Math.random() * computerHand.length);
@@ -115,7 +115,8 @@ function moveOtherCards(element){
     }
 }
 
-//-----EVENTS-----
+
+//----------EVENTS---------
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
     header.style.display='none';
@@ -127,19 +128,21 @@ playBtn.addEventListener('click',()=>{
 
 cards.forEach(element=>{
     element.addEventListener('click',()=>{
+        currentCard=element;
         resetCards()
         moveOtherCards(element)        
         element.style.transform='translateY(-2vw)'
         element.style.border='double .05vw blue'
     })
-    // element.addEventListener('click',()=>element.remove());
-    // element.addEventListener('click',()=>{
-    //     round(get_computer_choice(),element.classList[1]);
-    //     checkScore();
-    //         }
 
-//         )
 }
 )
+
+confirmBtn.addEventListener('click',()=>{
+    if (currentCard=={}) return;
+    round(get_computer_choice(),currentCard.classList[1]);
+    currentCard.remove();
+    checkScore();
+})
 
 
