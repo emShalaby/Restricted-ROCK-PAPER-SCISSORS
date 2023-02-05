@@ -1,9 +1,13 @@
-const playBtn=document.querySelector('.wrapper');
+const playBtn=document.querySelector('.play');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
 const cardsContainer=document.querySelector('#cards')
 const header=document.querySelector('.header');
 const confirmBtn=document.querySelector('.play-card')
+const body=document.querySelector('body')
+const content=document.querySelector('.content')
+let bodyStyles = window.getComputedStyle(body);
+let bodyBackgroundColor = bodyStyles.getPropertyValue("background-color");
 let yourScore=document.querySelector('#you')
 let computerScore=document.querySelector('#computer')
 var computerHand=[];
@@ -111,7 +115,7 @@ function moveOtherCards(element){
     let currentElement=element;
     while(currentElement.nextElementSibling){
         currentElement=currentElement.nextElementSibling;
-        currentElement.style.transform='translateX(6vw)'
+        currentElement.style.transform='translateX(4vw)'
     }
 }
 
@@ -120,6 +124,7 @@ function moveOtherCards(element){
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
     header.style.display='none';
+    content.style.display='none'
     game.style.display='flex';
     generateComputerHand();
 
