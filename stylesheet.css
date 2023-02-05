@@ -41,7 +41,7 @@ h1{
     flex-direction: row;
     
 }
-.cards{
+#cards{
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,11 +1,11 @@
 const playBtn=document.querySelector('.play');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
+const cardsContainer=document.querySelector('#cards')
 const header=document.querySelector('.header');
 let yourScore=document.querySelector('#you')
 let computerScore=document.querySelector('#computer')
 var computerHand=[];
-
 
 //----Functions---
 function get_computer_choice(){
@@ -72,7 +72,6 @@ function generateComputerHand(){
 
 }
 
-
 //fisher-yates shuffle
 function shuffleArray(array) {
     for (let i = array.length - 1; i >0; i--) {
@@ -82,6 +81,25 @@ function shuffleArray(array) {
     return array;
   }
 
+function checkScore(){
+    console.log(computerScore.children.length,yourScore.children.length,cardsContainer.children.length)
+    if (computerScore.children.length==6 || (cardsContainer.children.length==0 && computerScore.children.length>yourScore.children.length)) {
+            gameOver(computerScore)
+            return true;}
+    
+    else if (computerScore.children.length==6 ||(cardsContainer.children.length==0 && computerScore.children.length>yourScore.children)) {
+            gameOver(computerScore)
+            return true;
+        }
+    else if (cardsContainer.children.length==0) gameOver();
+    
+    
+    
+}
+function gameOver(element){
+    console.log('gameover');
+    game.style.display='none';
+}
 //-----EVENTS-----
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
@@ -93,7 +111,14 @@ playBtn.addEventListener('click',()=>{
 })
 
 cards.forEach(element=>{
-    element.addEventListener('click',()=>element.style.display='none');
-    element.addEventListener('click',()=>round(get_computer_choice(),element.classList[1]));
-})
+    element.addEventListener('click',()=>element.remove());
+    element.addEventListener('click',()=>{
+        round(get_computer_choice(),element.classList[1]);
+        checkScore();
+            }
+
+        )
+    }
+)
+
 
