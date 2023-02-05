@@ -18,7 +18,7 @@ h1{
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 2px 2px #333;
-    color: #00bfff;
+    color: rgba(255,0,0,.5);
 }
 .header{
     display: flex;
