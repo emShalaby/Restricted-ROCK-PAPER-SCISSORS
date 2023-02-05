@@ -1,6 +1,7 @@
 const playBtn=document.querySelector('.play');
 const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
+const header=document.querySelector('.header');
 var computerHand=[];
 
 
@@ -55,8 +56,10 @@ function shuffleArray(array) {
 //-----EVENTS-----
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
+    header.style.display='none';
     game.style.display='flex';
     generateComputerHand();
+
 
 })
 
