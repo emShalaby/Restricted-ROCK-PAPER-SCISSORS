@@ -6,9 +6,10 @@ var computerHand=[];
 
 //----Functions---
 function get_computer_choice(){
-    const RPS=['Rock','Paper','Scissors']
-    const random=Math.floor(Math.random() * RPS.length);
-    return RPS[random];
+    let randomIndex = Math.floor(Math.random() * computerHand.length);
+    let randomElement = computerHand[randomIndex];
+    computerHand.splice(randomIndex, 1);
+    return randomElement;
 }
 
 function round(computer,player){
@@ -50,12 +51,13 @@ function shuffleArray(array) {
     }
     return array;
   }
-  
+
 //-----EVENTS-----
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
     game.style.display='flex';
     generateComputerHand();
+
 })
 
 cards.forEach(element=>{
