@@ -12,6 +12,14 @@ body,html{
     align-items: center;
 
 }
+h1{
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #333;
+    color: #00bfff;
+}
 .header{
     display: flex;
     justify-content: center;
@@ -27,6 +35,35 @@ body,html{
     border: solid 2 px gray;
     height: 100%;
     width: 100%;
-    background-color: black;
-    
+    background-color: white;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 40px;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card{
+    padding-bottom: 20px;
+    margin-left: -5rem;
+    transition: 0.2s;
+    height: 12vw;
+    width: 12vw;
+}
+.card:hover{
+    transform: translateY(-1rem);
+    border: solid 1px blue;
+}
+
+.card:hover ~.card{
+    transform: translateX(5rem);
+}
+.card img{
+    height: 12vw;
+    width: 12vw;
 }
