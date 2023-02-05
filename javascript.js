@@ -148,6 +148,7 @@ confirmBtn.addEventListener('click',()=>{
     round(get_computer_choice(),currentCard.classList[1]);
     currentCard.remove();
     checkScore();
+
 })
 
 
