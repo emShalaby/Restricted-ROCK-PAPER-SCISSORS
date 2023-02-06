@@ -10,13 +10,16 @@ const blanks=document.querySelectorAll('.blank');
 const cardPlaces=document.querySelectorAll('.card-place');
 let yourScore=document.querySelector('#you');
 let computerScore=document.querySelector('#computer');
-var computerHand=[];
-var currentCard={};
+let computerHand=[];
+let currentCard={};
+let computerCard={};
+
 //----Functions---
 function get_computer_choice(){
     let randomIndex = Math.floor(Math.random() * computerHand.length);
     let randomElement = computerHand[randomIndex];
     computerHand.splice(randomIndex, 1);
+    computerCard=randomElement;
     return randomElement;
 }
 
@@ -72,7 +75,7 @@ function addScore(winner,loser){
 function generateComputerHand(){
     
     computerHand=['Rock','Paper','Scissors','Rock','Paper',
-    'Scissors','Rock','Paper','Scissors'];
+    'Scissors','Rock','Paper','Scissors','Rock','Paper','Scissors'];
     shuffleArray(computerHand);
 
 }
@@ -109,6 +112,14 @@ function resetCards(){
         element.style.border=''
         element.style.transform=''})
 }
+
+function resetField(){
+    blanks[0].innerHTML='';
+    blanks[1].innerHTML='';
+    blanks[0].style.display='flex';
+    blanks[1].style.display='flex';
+    confirmBtn.style.display='inline-block'
+}
 // function that makes cards to the right of card move to the right
 function moveOtherCards(element){
     let currentElement=element;
@@ -117,6 +128,8 @@ function moveOtherCards(element){
         currentElement.style.transform='translateX(4vw)'
     }
 }
+
+
 
 
 //----------EVENTS---------
@@ -141,19 +154,26 @@ cards.forEach(element=>{
 
 }
 )
-
+// this is some hot garbage dont even ask
 confirmBtn.addEventListener('click',()=>{
+    console.log(computerHand);
     if (currentCard=={}) return;
+    get_computer_choice();
+    confirmBtn.style.display='none';
     blanks.forEach(element=>element.style.display='none');
     cardPlaces.forEach(element=>element.style.display='flex');
     setTimeout(()=>{
     cardPlaces[0].style.display='none';
+    cardPlaces[1].style.display='none';
+
     blanks[0].style.display='flex';
-    blanks[0].innerHTML="<img src='./rock.png'>"},100)
-    round(get_computer_choice(),currentCard.classList[1]);
+    blanks[0].innerHTML=`<img src='${computerCard}.png'alt="${computerCard}">`
+    blanks[1].style.display='flex';
+    blanks[1].innerHTML=`<img src='${currentCard.classList[1]}.png' alt="${currentCard.classList[1]}"> `},1000)
+    setTimeout(resetField,2000)
+    setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
     currentCard.remove();
-    checkScore();
-    currentCard={};
+    setTimeout(checkScore,2000);
 })
 
 
