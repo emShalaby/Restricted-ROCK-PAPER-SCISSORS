@@ -8,8 +8,10 @@ const body=document.querySelector('body');
 const content=document.querySelector('.content');
 const cardPlaces=document.querySelectorAll('.card-place');
 const errorMessage=document.querySelector('.error-message');
-const cardSound=new Audio('./cardset.mp3');
 const cardMove=new Audio('./cardmove.mp3');
+const displayImageP= document.querySelectorAll('.display-image-p');
+const displayImageC= document.querySelectorAll('.display-image-c');
+
 let yourScore=document.querySelector('#you');
 let computerScore=document.querySelector('#computer');
 let computerHand=[];
@@ -118,7 +120,10 @@ function resetCards(){
 
 function resetField(){
 
-    confirmBtn.style.display='inline-block'
+    confirmBtn.style.display='inline-block';
+    displayImageC.forEach(element=>element.style.display='none');
+    displayImageP.forEach(element=>element.style.display='none');
+
 }
 // function that makes cards to the right of card move to the right
 function moveOtherCards(element){
@@ -172,15 +177,19 @@ confirmBtn.addEventListener('click',()=>{
     cardPlaces.forEach(element=>element.style.display='flex');
 
     setTimeout(()=>cardPlaces.forEach(element=>element.style.display='none'),1000);
-
+    console.log(currentCard);
+    setTimeout(()=>displayImageP.forEach(element=> {
+        if (element.classList.contains(`${currentCard.classList[1]}`)) element.style.display='flex'}),1050 );
+        setTimeout(()=>displayImageC.forEach(element=> {
+            if (element.classList.contains(`${computerCard}`)) element.style.display='flex'}),1050 );
 
     setTimeout(resetField,2000);
-    round(computerCard,currentCard.classList[1]);
+    setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
     currentCard.remove();
     setTimeout(checkScore,2000);
     setTimeout(()=>currentCard={},2050);
     setTimeout(()=>computerCard={},2050);
-    setTimeout(()=>cardsContainer.style.display='flex',2050);
+    setTimeout(()=>cardsContainer.style.display='flex',2000);
 })
 
 

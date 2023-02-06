@@ -11,13 +11,13 @@ html,body{
     height: 100%;
     align-items: center;
     user-select: none;
- /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67,4e5c5a+82,0e0e0e+100;Grey+3D */
-    background: rgb(216,224,222); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(216,224,222,1) 0%, rgba(174,191,188,1) 22%, rgba(153,175,171,1) 33%, rgba(142,166,162,1) 50%, rgba(130,157,152,1) 67%, rgba(78,92,90,1) 82%, rgba(14,14,14,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e0de', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+    background-color: black;
 
+}
+/* -----HEADER----- */
+.header{
+    display: flex;
+    justify-content: center;
 }
 h1{
     font-size: 6vw;
@@ -29,55 +29,46 @@ h1{
     font-family: 'Games', sans-serif;
 
 }
-.header{
-    display: flex;
-    justify-content: center;
-}
+/* ---------Start Page------- */
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.game{
- /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#606c88+0,3f4c6b+100;Grey+3D+%232 */
-background: rgb(96,108,136); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
 
+.menu{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+ }
+
+/* playBTN */
+.play {
+    background-color: black;
+    border: white 2px solid;
+    color: white;
+    padding: 1.3vw 2.7vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2.5vw;
+    cursor: pointer;
+    border-radius: 1vw;
+    margin-top: 20vw;
+
+  }
+/*----- GAME------ */
+.game{
 
     display: none;
     height: 100%;
     width: 100%;
-
     flex-direction: row;
     
 }
-#cards{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: fit-content;
-    width: 100%;
-
-    
-        
-}
-
-.card{
-    margin-left: -5vw;
-    max-width: fit-content;
-
-
-}
-
-img{
-    height: 12vw;
-    width: 10vw;
-}
-
+/* ------Score------ */
 .score{
     display: flex;
     flex-direction: column;
@@ -86,7 +77,17 @@ img{
     width: fit-content;
     justify-content: space-between;
     padding-bottom: 2vw;
+}
 
+.side-container{
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+}
+
+.score img{
+    height: 2.5vw;
+    width: 2.5vw;
 }
 #computer,#you{
     background-color: gray;
@@ -100,10 +101,48 @@ img{
     box-shadow: 4px 4px 12px 2px rgba(0,0,0,.7);
 
 }
-.score img{
-    height: 2.5vw;
-    width: 2.5vw;
+#computer-text{
+    color: rgba(0, 157, 255, 0.5);
+
 }
+
+#player-text{
+    color: rgba(246, 255, 0, 0.986);
+
+}
+
+/* error message when you don't choose a card */
+.error-message{
+    display: none;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    color: #521f18;
+}
+
+/* ----cards container--- */
+#cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    
+}
+/* ---each card--- */
+.card{
+    margin-left: -5vw;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+img{
+    height: 12vw;
+    width: 10vw;
+}
+
+
 .board{
     display: flex;
     flex-direction: column;
@@ -129,6 +168,8 @@ img{
     -webkit-box-shadow: inset 0 1px 0 #D0A97A;
     -moz-box-shadow: inset 0 1px 0 #D0A97A;    border: inset .8vw bisque;
 }
+
+/* middle part of the table where cards go to after being played */
 .card-disposer{
     height: 4vw;
     width: 30vw;
@@ -144,6 +185,8 @@ img{
     width: 100%;
     
 }
+
+/* ----the cover of the cards--- */
 .card-place{
     height: 12vw;
     width: 10vw;
@@ -153,39 +196,39 @@ img{
     align-items: center;
     background-color: rgba(255,164,1,255);
     padding: .6vw .6vw;
+
+   
+}
+
+.outer-color{
+    background-color: #000000;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    border: .2vw solid rgba(122,83,36,255);
+    padding: .5vw .5vw;
+}
+
+.inner-color{
+    background-color: rgba(110,30,19,255);
+    height: 100%;
+    width: 100%;
+    border: solid .2vw #521f18;
+}
+
+/* ---when cards flip--- */
+.display-image-c,.display-image-p{
+    height: 12vw;
+    width: 10vw;
+    box-shadow: 4px 4px 12px 2px rgba(0,0,0,.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 4vw;
 
    
 }
-.table{
-    background-color: antiquewhite;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.play {
-    background-color: black;
-    border: white 2px solid;
-    color: white;
-    padding: 1.3vw 2.7vw;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 2.5vw;
-    cursor: pointer;
-    border-radius: 1vw;
-    margin-top: 20vw;
-
-  }
-
- .menu{
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
- }
-
+/* place card button */
 .play-card{
     width: 8vw;
     height: 3vw;
@@ -201,20 +244,7 @@ img{
     border-radius: 1vw ;
 }
 
-.outer-color{
-    background-color: #000000;
-    flex-grow: 1;
-    height: 100%;
-    width: 100%;
-    border: .2vw solid rgba(122,83,36,255);
-    padding: .5vw .5vw;
-}
-.inner-color{
-    background-color: rgba(110,30,19,255);
-    height: 100%;
-    width: 100%;
-    border: solid .2vw #521f18;
-}
+
 
 
 
@@ -238,30 +268,8 @@ h2{
     font-family: 'Games', sans-serif;
 }
 
-#computer-text{
-    color: rgba(0, 157, 255, 0.5);
 
-}
 
-#player-text{
-    color: rgba(246, 255, 0, 0.986);
 
-}
 
-.side-container{
-    display: flex;
-    flex-direction: column;
-    gap: .5vw;
-}
 
-.error-message{
-    display: none;
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    left: 50%;
-    color: #521f18;
-}
-.display-image{
-    display: none;
-}
