@@ -41,7 +41,7 @@ h1{
     align-self: center;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+
  }
 
 /* playBTN */
@@ -243,11 +243,6 @@ img{
     cursor: pointer;
     border-radius: 1vw ;
 }
-
-
-
-
-
 
 button{
     transform: scale(1);

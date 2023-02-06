@@ -4,7 +4,6 @@ const cards = document.querySelectorAll('.card');
 const cardsContainer=document.querySelector('#cards')
 const header=document.querySelector('.header');
 const confirmBtn=document.querySelector('.play-card');
-const body=document.querySelector('body');
 const content=document.querySelector('.content');
 const cardPlaces=document.querySelectorAll('.card-place');
 const errorMessage=document.querySelector('.error-message');
@@ -17,9 +16,8 @@ let computerScore=document.querySelector('#computer');
 let computerHand=[];
 let currentCard={};
 let computerCard={};
-let winCounter=0;
-
 //----Functions---
+// gets a random choice from 
 function get_computer_choice(){
     let randomIndex = Math.floor(Math.random() * computerHand.length);
     let randomElement = computerHand[randomIndex];
@@ -30,44 +28,31 @@ function get_computer_choice(){
 
 function round(computer,player){
     
-    
-    const RS='Rock beats scissors!';
-    const RP='Paper beats rock!';
-    const PS='Scissors beats paper!';
-    const draw=`Draw! Both players picked ${player}`;
-    const win='You win!';
-    const lose='You lose!';
-    
     if (player===computer) return draw;
 
     else if (player=='Rock' && computer=='Paper') {
-        addScore(winner=computerScore,loser=yourScore)
-        return `${lose} ${RP}`;}
-    
-        else if (player=='Rock'&& computer=='Scissors') {
-            addScore(winner=yourScore,loser=computerScore)
-            return `${win} ${RS}`;}
+        addScore(winner=computerScore,loser=yourScore);
+    }
+    else if (player=='Rock'&& computer=='Scissors') {
+        addScore(winner=yourScore,loser=computerScore);
+            }
     
     else if (player=='Paper' && computer=='Rock') {
-        addScore(winner=yourScore,loser=computerScore)
-        return `${win} ${RP} `;
+        addScore(winner=yourScore,loser=computerScore);
+
     }
     
     else if (player=='Paper' && computer=='Scissors') {
         addScore(winner=computerScore,loser=yourScore);
-        return `${lose} ${PS}`;
     }
     
     else if (player=='Scissors' && computer=='Rock') {
         addScore(winner=computerScore,loser=yourScore)    
-        return `${lose} ${RS}`;
     }
     else if (player=='Scissors' && computer=='Paper') {
         addScore(winner=yourScore,loser=computerScore);
-        return `${win} ${PS}`
     }
     
-
 }
 
 function addScore(winner,loser){
@@ -77,6 +62,7 @@ function addScore(winner,loser){
     img.alt='star-icon'
     winner.appendChild(img);
 }
+
 function generateComputerHand(){
     
     computerHand=['Rock','Paper','Scissors','Rock','Paper',
