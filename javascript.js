@@ -87,13 +87,12 @@ function shuffleArray(array) {
   }
 
 function checkScore(){
-    console.log(computerScore.children.length,yourScore.children.length,cardsContainer.children.length)
     if (computerScore.children.length==6 || (cardsContainer.children.length==0 && computerScore.children.length>yourScore.children.length)) {
             gameOver(computerScore)
             return true;}
     
-    else if (computerScore.children.length==6 ||(cardsContainer.children.length==0 && computerScore.children.length>yourScore.children)) {
-            gameOver(computerScore)
+    else if (yourScore.children.length==6 ||(cardsContainer.children.length==0 && computerScore.children.length<yourScore.children)) {
+            gameOver(yourScore)
             return true;
         }
     else if (cardsContainer.children.length==0) gameOver();
@@ -148,7 +147,7 @@ confirmBtn.addEventListener('click',()=>{
     round(get_computer_choice(),currentCard.classList[1]);
     currentCard.remove();
     checkScore();
-
+    currentCard={};
 })
 
 
