@@ -107,11 +107,10 @@ img{
 .board{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-around;
     flex-grow: 1;
-    justify-content: space-between;
-    gap: .5vw;
+    
     background: rgb(2,1,21);
     background: #C19A6B;
     color: #A37C4D;
@@ -154,6 +153,7 @@ img{
     align-items: center;
     background-color: rgba(255,164,1,255);
     padding: .6vw .6vw;
+    margin-bottom: 4vw;
 
    
 }
@@ -216,17 +216,8 @@ img{
     border: solid .2vw #521f18;
 }
 
-.blank{
-    height: 12vw;
-    width: 10vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
 
 
-   
-}
 
 button{
     transform: scale(1);
@@ -270,4 +261,7 @@ h2{
     bottom: 50%;
     left: 50%;
     color: #521f18;
+}
+.display-image{
+    display: none;
 }

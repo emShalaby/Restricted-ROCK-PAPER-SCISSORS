@@ -6,7 +6,6 @@ const header=document.querySelector('.header');
 const confirmBtn=document.querySelector('.play-card');
 const body=document.querySelector('body');
 const content=document.querySelector('.content');
-const blanks=document.querySelectorAll('.blank');
 const cardPlaces=document.querySelectorAll('.card-place');
 const errorMessage=document.querySelector('.error-message');
 const cardSound=new Audio('./cardset.mp3');
@@ -118,10 +117,7 @@ function resetCards(){
 }
 
 function resetField(){
-    blanks[0].innerHTML='';
-    blanks[1].innerHTML='';
-    blanks[0].style.display='flex';
-    blanks[1].style.display='flex';
+
     confirmBtn.style.display='inline-block'
 }
 // function that makes cards to the right of card move to the right
@@ -170,20 +166,14 @@ confirmBtn.addEventListener('click',()=>{
         setTimeout(()=>errorMessage.style.display='none',1000)
         return
     }
-    cardSound.play();
     cardsContainer.style.display='none';
     get_computer_choice();
     confirmBtn.style.display='none';
-    blanks.forEach(element=>element.style.display='none');
     cardPlaces.forEach(element=>element.style.display='flex');
-    setTimeout(()=>{
-    cardPlaces[0].style.display='none';
-    cardPlaces[1].style.display='none';
 
-    blanks[0].style.display='flex';
-    blanks[0].innerHTML=`<img src='${computerCard}.png'alt="${computerCard}">`
-    blanks[1].style.display='flex';
-    blanks[1].innerHTML=`<img src='${currentCard.classList[1]}.png' alt="${currentCard.classList[1]}"> `},1000)
+    setTimeout(()=>cardPlaces.forEach(element=>element.style.display='none'),1000);
+
+
     setTimeout(resetField,2000);
     round(computerCard,currentCard.classList[1]);
     currentCard.remove();
@@ -192,6 +182,8 @@ confirmBtn.addEventListener('click',()=>{
     setTimeout(()=>computerCard={},2050);
     setTimeout(()=>cardsContainer.style.display='flex',2050);
 })
+
+
 
 
 
