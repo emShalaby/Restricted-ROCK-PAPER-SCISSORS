@@ -3,13 +3,13 @@ const game=document.querySelector('.game');
 const cards = document.querySelectorAll('.card');
 const cardsContainer=document.querySelector('#cards')
 const header=document.querySelector('.header');
-const confirmBtn=document.querySelector('.play-card')
-const body=document.querySelector('body')
-const content=document.querySelector('.content')
-let bodyStyles = window.getComputedStyle(body);
-let bodyBackgroundColor = bodyStyles.getPropertyValue("background-color");
-let yourScore=document.querySelector('#you')
-let computerScore=document.querySelector('#computer')
+const confirmBtn=document.querySelector('.play-card');
+const body=document.querySelector('body');
+const content=document.querySelector('.content');
+const blanks=document.querySelectorAll('.blank');
+const cardPlaces=document.querySelectorAll('.card-place');
+let yourScore=document.querySelector('#you');
+let computerScore=document.querySelector('#computer');
 var computerHand=[];
 var currentCard={};
 //----Functions---
@@ -144,6 +144,12 @@ cards.forEach(element=>{
 
 confirmBtn.addEventListener('click',()=>{
     if (currentCard=={}) return;
+    blanks.forEach(element=>element.style.display='none');
+    cardPlaces.forEach(element=>element.style.display='flex');
+    setTimeout(()=>{
+    cardPlaces[0].style.display='none';
+    blanks[0].style.display='flex';
+    blanks[0].innerHTML="<img src='./rock.png'>"},100)
     round(get_computer_choice(),currentCard.classList[1]);
     currentCard.remove();
     checkScore();
