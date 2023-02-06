@@ -92,8 +92,6 @@ function checkScore(){
     
     else if (containerEmpty==false && computerScore.children.length==yourScore.children.length) gameOver('draw');
 
-    
-    
 }
 //this function checks if player ran out of cards;
 function containerEmpty(){
@@ -106,6 +104,7 @@ function containerEmpty(){
         }
     }
 }
+//if game is over displays the endscreen
 function gameOver(winner){
     game.style.display='none';
     if(winner=='player') win.style.display='flex';
@@ -114,12 +113,13 @@ function gameOver(winner){
     return ;
 
 }
+//if another card is clicked the previous card's border and movement is removed
 function resetCards(){
     cards.forEach(element=>{
         element.style.border=''
         element.style.transform=''})
 }
-
+//after cards played animation this function resets the field
 function resetField(){
 
     confirmBtn.style.display='inline-block';
@@ -135,7 +135,7 @@ function moveOtherCards(element){
         currentElement.style.transform='translateX(4vw)'
     }
 }
-
+//this function resets everything after clicking restart button
 function gameReset(){
     currentCard={};
     computerCard={}
@@ -145,6 +145,7 @@ function gameReset(){
 
     yourScore.innerHTML='';
     computerScore.innerHTML='';
+    //generating 3 stars for each player
     for(i=0;i<3;i++){
         let img=document.createElement('img');
         img.src='./star.png';
@@ -160,6 +161,7 @@ function gameReset(){
 
 
 //----------EVENTS---------
+//after you click play switches scene to game-scene
 playBtn.addEventListener('click',()=>{
     playBtn.style.display='none';
     header.style.display='none';
@@ -169,7 +171,7 @@ playBtn.addEventListener('click',()=>{
     cardMove.play();
 
 })
-
+// when you click on a card it updates the currentCard and does all the animation
 cards.forEach(element=>{
     element.addEventListener('click',()=>{
         currentCard=element;
@@ -184,8 +186,9 @@ cards.forEach(element=>{
 }
 )
 
-// this is some hot garbage dont even ask
+// this is some hot garbage, can be improved a lot .
 confirmBtn.addEventListener('click',()=>{
+    //displays error message if u click place card without selecting a card
     try{
         currentCard.classList.contains('card')
     } 
@@ -194,20 +197,27 @@ confirmBtn.addEventListener('click',()=>{
         setTimeout(()=>errorMessage.style.display='none',1000)
         return
     }
-    cardsContainer.style.display='none';
     get_computer_choice();
+    
+    cardsContainer.style.display='none';
+    
     confirmBtn.style.display='none';
+    
+    //this displays the cover of the card for a second to mimic a flip effect
     cardPlaces.forEach(element=>element.style.display='flex');
-
     setTimeout(()=>cardPlaces.forEach(element=>element.style.display='none'),1000);
+    
+    //this displays the other side of the card
     setTimeout(()=>displayImageP.forEach(element=> {
         if (element.classList.contains(`${currentCard.classList[1]}`)) element.style.display='flex'}),1050 );
         setTimeout(()=>displayImageC.forEach(element=> {
-            if (element.classList.contains(`${computerCard}`)) element.style.display='flex'}),1050 );
-
+        if (element.classList.contains(`${computerCard}`)) element.style.display='flex'}),1050 );
+    //longer timeouts to make sure everything happens after the animation      
     setTimeout(resetField,2000);
     setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
+    //hides the played card
     currentCard.style.display='none';
+    
     setTimeout(checkScore,2000);
     setTimeout(()=>currentCard={},2050);
     setTimeout(()=>computerCard={},2050);
