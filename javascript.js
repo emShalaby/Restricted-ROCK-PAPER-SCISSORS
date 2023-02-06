@@ -10,7 +10,10 @@ const errorMessage=document.querySelector('.error-message');
 const cardMove=new Audio('./cardmove.mp3');
 const displayImageP= document.querySelectorAll('.display-image-p');
 const displayImageC= document.querySelectorAll('.display-image-c');
-
+const win=document.querySelector('.win-screen');
+const lose=document.querySelector('.lose-screen');
+const draw=document.querySelector('.draw-screen');
+const restartBtn=document.querySelectorAll('.restart');
 let yourScore=document.querySelector('#you');
 let computerScore=document.querySelector('#computer');
 let computerHand=[];
@@ -25,10 +28,10 @@ function get_computer_choice(){
     computerCard=randomElement;
     return randomElement;
 }
-
+//function gets a result of the round
 function round(computer,player){
     
-    if (player===computer) return draw;
+    if (player===computer) return ;
 
     else if (player=='Rock' && computer=='Paper') {
         addScore(winner=computerScore,loser=yourScore);
@@ -54,15 +57,15 @@ function round(computer,player){
     }
     
 }
-
+// updates the score
 function addScore(winner,loser){
     loser.removeChild(loser.children[0]);
-    var img=document.createElement('img');
+    let img=document.createElement('img');
     img.src='./star.png'
     img.alt='star-icon'
     winner.appendChild(img);
 }
-
+// generates a computer hand of 12 cards
 function generateComputerHand(){
     
     computerHand=['Rock','Paper','Scissors','Rock','Paper',
@@ -71,7 +74,7 @@ function generateComputerHand(){
 
 }
 
-//fisher-yates shuffle
+//fisher-yates shuffle to shuffle the computer hand just for extra randomness
 function shuffleArray(array) {
     for (let i = array.length - 1; i >0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -79,23 +82,37 @@ function shuffleArray(array) {
     }
     return array;
   }
-
+// checks how many stars
 function checkScore(){
-    if (computerScore.children.length==6 || (cardsContainer.children.length==0 && computerScore.children.length>yourScore.children.length)) {
-            gameOver(computerScore)
-            return true;}
+    if (computerScore.children.length==6 || (containerEmpty()==true &&computerScore.children.length>yourScore.children.length)) gameOver('computer');
     
-    else if (yourScore.children.length==6 ||(cardsContainer.children.length==0 && computerScore.children.length<yourScore.children)) {
-            gameOver(yourScore)
-            return true;
+    else if (yourScore.children.length==6 ||(containerEmpty()==true&& computerScore.children.length<yourScore.children.length)) {
+            gameOver('player');
         }
-    else if (cardsContainer.children.length==0) gameOver();
     
+    else if (containerEmpty==false && computerScore.children.length==yourScore.children.length) gameOver('draw');
+
     
     
 }
-function gameOver(element){
+//this function checks if player ran out of cards;
+function containerEmpty(){
+    let allHidden=true;
+    for(i=0;i<cardsContainer.children.length;i++){
+        const child=cardsContainer.children[i];
+        if (child.style.display!=='none'){
+            allHidden=false;
+            return allHidden;
+        }
+    }
+}
+function gameOver(winner){
     game.style.display='none';
+    if(winner=='player') win.style.display='flex';
+    else if(winner=='computer') lose.style.display='flex';
+    else draw.style.display='flex';
+    return ;
+
 }
 function resetCards(){
     cards.forEach(element=>{
@@ -119,7 +136,27 @@ function moveOtherCards(element){
     }
 }
 
+function gameReset(){
+    currentCard={};
+    computerCard={}
+    computerHand=[]
+    resetField();
+    cards.forEach(element=>element.style.display='flex');  
 
+    yourScore.innerHTML='';
+    computerScore.innerHTML='';
+    for(i=0;i<3;i++){
+        let img=document.createElement('img');
+        img.src='./star.png';
+        img.alt='star-icon';
+        yourScore.appendChild(img);
+        let img2=document.createElement('img');
+        img2.src='./star.png';
+        img2.alt='star-icon';
+        computerScore.appendChild(img2);
+    }
+
+}
 
 
 //----------EVENTS---------
@@ -146,6 +183,7 @@ cards.forEach(element=>{
 
 }
 )
+
 // this is some hot garbage dont even ask
 confirmBtn.addEventListener('click',()=>{
     try{
@@ -169,7 +207,7 @@ confirmBtn.addEventListener('click',()=>{
 
     setTimeout(resetField,2000);
     setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
-    currentCard.remove();
+    currentCard.style.display='none';
     setTimeout(checkScore,2000);
     setTimeout(()=>currentCard={},2050);
     setTimeout(()=>computerCard={},2050);
@@ -177,6 +215,16 @@ confirmBtn.addEventListener('click',()=>{
 })
 
 
-
+restartBtn.forEach(element=>{element.addEventListener('click',()=>{
+    gameReset();
+    win.style.display='none';
+    lose.style.display='none';
+    draw.style.display='none';
+    header.style.display='none';
+    content.style.display='none'
+    game.style.display='flex';
+    generateComputerHand();
+    cardMove.play();
+})})
 
 
