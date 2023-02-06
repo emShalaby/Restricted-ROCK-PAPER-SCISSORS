@@ -21,6 +21,8 @@ html,body{
 .header{
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 30%;
 }
 h1{
     font-size: 6vw;
@@ -43,6 +45,7 @@ h1{
     align-self: center;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
  }
 
@@ -58,7 +61,8 @@ h1{
     font-size: 2.5vw;
     cursor: pointer;
     border-radius: 1vw;
-    margin-top: 20vw;
+    flex-grow: 1;
+    margin-top: 3vw;
 
   }
 /*----- GAME------ */
@@ -150,8 +154,8 @@ img{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    flex-grow: 1;
-    
+    height: 100%;
+    width: 100%;
     background: rgb(2,1,21);
     background: #C19A6B;
     color: #A37C4D;
@@ -232,8 +236,8 @@ img{
 }
 /* place card button */
 .play-card{
-    width: 8vw;
-    height: 3vw;
+    width: 10vw;
+    max-height: 12vw;
     align-self: center;
     background-color: black;
     border: white 2px solid;
@@ -244,6 +248,7 @@ img{
     font-size: 1vw;
     cursor: pointer;
     border-radius: 1vw ;
+    flex-grow: 1;
 }
 
 button{
@@ -296,5 +301,15 @@ h2{
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
+  .rules h2{
+    color: yellow;
+  }
+  p{
+    font-family: 'games';
+    font-size: 1.2vw; 
+    line-height: 1.5; 
+    color:white;
+  }
+  
 
 

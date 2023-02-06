@@ -19,6 +19,7 @@ let computerScore=document.querySelector('#computer');
 let computerHand=[];
 let currentCard={};
 let computerCard={};
+
 //----Functions---
 // gets a random choice from 
 function get_computer_choice(){
@@ -84,18 +85,24 @@ function shuffleArray(array) {
   }
 // checks how many stars
 function checkScore(){
-    if (computerScore.children.length==6 || (containerEmpty()==true &&computerScore.children.length>yourScore.children.length)) gameOver('computer');
-    
-    else if (yourScore.children.length==6 ||(containerEmpty()==true&& computerScore.children.length<yourScore.children.length)) {
+    if (computerScore.children.length==6 || (containerEmpty()!=false &&computerScore.children.length>yourScore.children.length)){ 
+    gameOver('computer');
+    return;
+    }
+    else if (yourScore.children.length==6 ||(containerEmpty()!=false&& computerScore.children.length<yourScore.children.length)) {
             gameOver('player');
+            return;
         }
     
-    else if (containerEmpty==false && computerScore.children.length==yourScore.children.length) gameOver('draw');
-
+    else if (containerEmpty()!=false)  {
+        gameOver('draw');
+        return;
+}
 }
 //this function checks if player ran out of cards;
 function containerEmpty(){
     let allHidden=true;
+
     for(i=0;i<cardsContainer.children.length;i++){
         const child=cardsContainer.children[i];
         if (child.style.display!=='none'){
