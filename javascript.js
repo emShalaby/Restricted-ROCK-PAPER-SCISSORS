@@ -109,7 +109,6 @@ function checkScore(){
     
 }
 function gameOver(element){
-    console.log('gameover');
     game.style.display='none';
 }
 function resetCards(){
@@ -177,7 +176,6 @@ confirmBtn.addEventListener('click',()=>{
     cardPlaces.forEach(element=>element.style.display='flex');
 
     setTimeout(()=>cardPlaces.forEach(element=>element.style.display='none'),1000);
-    console.log(currentCard);
     setTimeout(()=>displayImageP.forEach(element=> {
         if (element.classList.contains(`${currentCard.classList[1]}`)) element.style.display='flex'}),1050 );
         setTimeout(()=>displayImageC.forEach(element=> {
