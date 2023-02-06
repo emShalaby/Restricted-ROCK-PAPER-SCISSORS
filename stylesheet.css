@@ -31,7 +31,7 @@ h1{
     letter-spacing: 2px;
     text-shadow: 2px 2px #333;
     color: rgba(255,0,0,.5);
-    font-family: 'Games', sans-serif;
+    font-family: 'Games', Arial, Helvetica, sans-serif;
 }
 /* ---------Start Page------- */
 .content{
@@ -303,9 +303,10 @@ h2{
   }
   .rules h2{
     color: yellow;
+    font-family: "games"  Arial, Helvetica, sans-serif;
   }
   p{
-    font-family: 'games';
+    font-family: 'games' Arial, Helvetica, sans-serif;
     font-size: 1.2vw; 
     line-height: 1.5; 
     color:white;
