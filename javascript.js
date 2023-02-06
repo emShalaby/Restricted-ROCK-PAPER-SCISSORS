@@ -14,6 +14,7 @@ let computerScore=document.querySelector('#computer');
 let computerHand=[];
 let currentCard={};
 let computerCard={};
+let winCounter=0;
 
 //----Functions---
 function get_computer_choice(){
@@ -147,25 +148,25 @@ playBtn.addEventListener('click',()=>{
 cards.forEach(element=>{
     element.addEventListener('click',()=>{
         currentCard=element;
-        resetCards()
-        moveOtherCards(element)        
-        element.style.transform='translateY(-2vw)'
-        element.style.border='double .05vw blue'
+        resetCards();
+        moveOtherCards(element);        
+        element.style.transform='translateY(-2vw)';
+        element.style.border='double .05vw blue';
     })
 
 }
 )
 // this is some hot garbage dont even ask
 confirmBtn.addEventListener('click',()=>{
-    console.log(currentCard);
     try{
         currentCard.classList.contains('card')
     } 
     catch{
         errorMessage.style.display='inline-block';
         setTimeout(()=>errorMessage.style.display='none',1000)
-        return;
+        return
     }
+    cardsContainer.style.display='none'
     get_computer_choice();
     confirmBtn.style.display='none';
     blanks.forEach(element=>element.style.display='none');
@@ -178,12 +179,13 @@ confirmBtn.addEventListener('click',()=>{
     blanks[0].innerHTML=`<img src='${computerCard}.png'alt="${computerCard}">`
     blanks[1].style.display='flex';
     blanks[1].innerHTML=`<img src='${currentCard.classList[1]}.png' alt="${currentCard.classList[1]}"> `},1000)
-    setTimeout(resetField,2000)
-    setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
+    setTimeout(resetField,2000);
+    round(computerCard,currentCard.classList[1]);
     currentCard.remove();
     setTimeout(checkScore,2000);
     setTimeout(()=>currentCard={},2050);
     setTimeout(()=>computerCard={},2050);
+    setTimeout(()=>cardsContainer.style.display='flex',2050);
 })
 
 
