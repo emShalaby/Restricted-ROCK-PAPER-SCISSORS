@@ -8,6 +8,7 @@ const body=document.querySelector('body');
 const content=document.querySelector('.content');
 const blanks=document.querySelectorAll('.blank');
 const cardPlaces=document.querySelectorAll('.card-place');
+const errorMessage=document.querySelector('.error-message');
 let yourScore=document.querySelector('#you');
 let computerScore=document.querySelector('#computer');
 let computerHand=[];
@@ -156,8 +157,15 @@ cards.forEach(element=>{
 )
 // this is some hot garbage dont even ask
 confirmBtn.addEventListener('click',()=>{
-    console.log(computerHand);
-    if (currentCard=={}) return;
+    console.log(currentCard);
+    try{
+        currentCard.classList.contains('card')
+    } 
+    catch{
+        errorMessage.style.display='inline-block';
+        setTimeout(()=>errorMessage.style.display='none',1000)
+        return;
+    }
     get_computer_choice();
     confirmBtn.style.display='none';
     blanks.forEach(element=>element.style.display='none');
@@ -174,6 +182,9 @@ confirmBtn.addEventListener('click',()=>{
     setTimeout(()=>round(computerCard,currentCard.classList[1]),2000);
     currentCard.remove();
     setTimeout(checkScore,2000);
+    setTimeout(()=>currentCard={},2050);
+    setTimeout(()=>computerCard={},2050);
 })
+
 
 
