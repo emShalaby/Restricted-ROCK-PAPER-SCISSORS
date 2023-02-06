@@ -9,6 +9,8 @@ const content=document.querySelector('.content');
 const blanks=document.querySelectorAll('.blank');
 const cardPlaces=document.querySelectorAll('.card-place');
 const errorMessage=document.querySelector('.error-message');
+const cardSound=new Audio('./cardset.mp3');
+const cardMove=new Audio('./cardmove.mp3');
 let yourScore=document.querySelector('#you');
 let computerScore=document.querySelector('#computer');
 let computerHand=[];
@@ -141,7 +143,7 @@ playBtn.addEventListener('click',()=>{
     content.style.display='none'
     game.style.display='flex';
     generateComputerHand();
-
+    cardMove.play();
 
 })
 
@@ -152,7 +154,9 @@ cards.forEach(element=>{
         moveOtherCards(element);        
         element.style.transform='translateY(-2vw)';
         element.style.border='double .05vw blue';
-    })
+
+    }
+    );
 
 }
 )
@@ -166,7 +170,8 @@ confirmBtn.addEventListener('click',()=>{
         setTimeout(()=>errorMessage.style.display='none',1000)
         return
     }
-    cardsContainer.style.display='none'
+    cardSound.play();
+    cardsContainer.style.display='none';
     get_computer_choice();
     confirmBtn.style.display='none';
     blanks.forEach(element=>element.style.display='none');
