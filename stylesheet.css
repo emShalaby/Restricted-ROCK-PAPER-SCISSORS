@@ -21,11 +21,10 @@ html,body{
 .header{
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 30%;
+
 }
 h1{
-    font-size: 6vw;
+    font-size: 8vh;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -45,7 +44,6 @@ h1{
     align-self: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
 
  }
 
@@ -54,11 +52,11 @@ h1{
     background-color: black;
     border: white 2px solid;
     color: white;
-    padding: 1.3vw 2.7vw;
+    padding: 1.3vw 3.5vh;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 2.5vw;
+    font-size: 4vh;
     cursor: pointer;
     border-radius: 1vw;
     flex-grow: 1;
@@ -92,13 +90,13 @@ h1{
 }
 
 .score img{
-    height: 2.5vw;
-    width: 2.5vw;
+    height: 8vh;
+    width: 4vw;
 }
 #computer,#you{
     background-color: gray;
-    height: 6.5vw;
-    width: 14vw;
+    height: 19vh;
+    width: 15vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -138,14 +136,14 @@ h1{
 }
 /* ---each card--- */
 .card{
-    margin-left: -5vw;
+    margin-left: -4.3vw;
     max-width: fit-content;
     max-height: fit-content;
 }
 
 img{
-    height: 12vw;
-    width: 10vw;
+    height: 30vh;
+    width: 10.2vw;
 }
 
 
@@ -177,7 +175,7 @@ img{
 
 /* middle part of the table where cards go to after being played */
 .card-disposer{
-    height: 4vw;
+    height: 10vh;
     width: 30vw;
     border: solid 2px gray;
     background-color: silver;
@@ -194,8 +192,8 @@ img{
 
 /* ----the cover of the cards--- */
 .card-place{
-    height: 12vw;
-    width: 10vw;
+    height: 30vh;
+    width: 10.2vw;
     box-shadow: 4px 4px 12px 2px rgba(0,0,0,.7);
     display: none;
     justify-content: center;
@@ -224,8 +222,8 @@ img{
 
 /* ---when cards flip--- */
 .display-image-c,.display-image-p{
-    height: 12vw;
-    width: 10vw;
+    height: 30vh;
+    width: 10.2vw;
     box-shadow: 4px 4px 12px 2px rgba(0,0,0,.7);
     display: none;
     justify-content: center;
@@ -236,8 +234,8 @@ img{
 }
 /* place card button */
 .play-card{
-    width: 10vw;
-    max-height: 12vw;
+    width: 11vw;
+    max-height: 30vh;
     align-self: center;
     background-color: black;
     border: white 2px solid;
